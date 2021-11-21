@@ -1,0 +1,189 @@
+﻿<Window xmlns:MyUserControls="clr-namespace:Travail01.View.MyUserControls"  x:Class="Travail01.View.ModifSupprimPole"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Travail01.View"
+        mc:Ignorable="d"
+        Title="ModifSupprimPole" Height="450" Width="800">
+    <!--   Commande Routée      -->
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="NavigationCommands.PreviousPage"
+            CanExecute="PreviousPage_CanExecute"
+            Executed="PreviousPage_Executed"  />
+
+    </Window.CommandBindings>
+    <Grid>
+        <!--la fenetre est diviser en 3 lignes -->
+        <!--1er: User Control de Haut de Page -->
+        <!--2eme: le corps de la fenetre pour mettre des box en fontion des besoins   -->
+        <!--3eme: User Controle de Bas de Page -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!-- 1ere ligne pas de decoupe Haut de page -->
+        <Grid  Grid.Row="0" Grid.Column="0" >
+            <MyUserControls:hautPage1 />    <!--  C'est le Haut de Page -->        
+        </Grid>
+
+        <!-- 2eme ligne decoupe en 3 lignes et 3 colonnes : C'est le corps de la fenetre  -->
+        <Grid x:Name="grContent" Grid.Row="1" Grid.Column="0"  Background="#FFF5E2E2"  >
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/> <!-- separation-->                  
+                    <RowDefinition Height="*"/>  <!-- le corps de la fenetre  -->                   
+                    <RowDefinition Height="30"/> <!-- separation -->                  
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>  <!-- separation   -->                  
+                    <ColumnDefinition Width="*" />  <!--  le coprs de la fenetre  -->                   
+                    <ColumnDefinition Width="50" /> <!-- separation   -->                 
+                </Grid.ColumnDefinitions>
+
+                <!-- se decoupe en 1 ligne et 3 colonnes le user controle infoPole et la combo +label pole-->
+                <Grid  Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="450"/> <!--    User Controm InfoPole   -->                      
+                        <ColumnDefinition Width="10"/>  <!--    separation  -->                      
+                        <ColumnDefinition Width="*"/>   <!--    Combobox des Poles  -->                       
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 1ere colonne user Controle Info Pole -->
+                    <Grid Grid.Row="0" Grid.Column="0" Background="red"   >
+                                                                       
+                        <!--     <MyUserControls:InfoPole />     info Pole qui viennent du cxomboBox Pole                                       -->
+                        
+                        
+                        <Grid Background="Yellow" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>   <!--  Hauteur de ma 1ere ligne  -->                             
+                                <RowDefinition Height="100"/>   <!--  Hauteur de la 2eme ligne  -->      
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/> <!--  Largeur du label        -->                               
+                                <ColumnDefinition Width="300"/>     <!--  Largeur di textBox      -->
+                            </Grid.ColumnDefinitions>
+
+                            <Label   Grid.Row="0" Grid.Column="0" Height="30" Width="150"  Content="Numero du pôle :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBox x:Name="txtNumPole" Grid.Row="0" Grid.Column="1" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                            <Label   Grid.Row="1" Grid.Column="0" Height="30" Width="150" Content="Description du pole :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtDesignaPole" Grid.Row="1" Grid.Column="1"  Height="100"   Width="250" FontWeight="Bold" FontSize="14" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+
+
+
+                        </Grid>
+
+
+
+                    </Grid>
+
+                    <!-- 2eme colonne separateur -->
+                    <Grid Grid.Row="0" Grid.Column="1"  Background="Green"  /> <!--  Colonne Separateur -->
+
+                    <!-- 3 colonne user Combobox Info Pole et son label -->
+                    <!-- qui est decouper 2 ligne et 1 colonnes Le label et la combobox Poles -->
+                    <Grid Grid.Row="0" Grid.Column="2" Height="229" VerticalAlignment="Bottom"  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>  <!--  Label-->                          
+                            <RowDefinition Height="*"/>    <!-- combo poles  -->                        
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Poles" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        <ComboBox x:Name="comboBoxPole" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="160" Margin="41,10,30,29" Width="181" SelectionChanged="ComboBoxPole_SelectionChanged"  >
+                     <!--   <ComboBoxItem>
+                                <Grid>
+                                    <TextBlock Text="{Binding NumeroPole}"  />
+                                </Grid>
+                            </ComboBoxItem> -->
+                        </ComboBox>
+                    </Grid>
+
+                  
+                </Grid>
+            </Grid>
+
+
+
+
+        </Grid>  <!--    Fin de la 2eme ligne    -->
+      
+
+
+
+<!--                     -->
+
+
+
+
+
+        <!-- 3eme ligne avec les boutons  Nouveau, Modifier, supprimer et Quitter -->
+        <!-- decoupé en 1 ligne et 2 colonnes -->
+        <Grid Grid.Row="2" Grid.Column="0" Background="#FFFB7777"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/> <!-- ligne des Boutons -->               
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>    <!-- Colonne Vide ou info sur la connexion-->             
+                <ColumnDefinition Width="400"/>  <!-- Colonnes des 4 boutons : " Nouveau, Modifier, supprimer et Quitter"   -->              
+            </Grid.ColumnDefinitions>
+
+            <!-- Colonne Vide ou info sur la connexion      -->
+            <GroupBox>
+                <Grid Grid.Row="0" Grid.Column="0">  <!-- Ici on met des info sur la connexion -->                  
+                    <Grid> <!-- je divise en 1 lign et 2 colonne-->                       
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Row="0" Grid.Column="0" Height="25" Width="150"  Text="Etat de la connexion :" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="25" Width="150"  Text="{Binding Path=InfoConnexion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Grid>
+            </GroupBox>
+
+            <!-- Ici la Colonne avec les differents boutons !! -->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>  <!--  Bouton Nouveau    -->                 
+                    <ColumnDefinition Width="100"/>  <!--  Bouton Modif      -->                    
+                    <ColumnDefinition Width="100"/>  <!--  Bouton Supprimer  -->                   
+                    <ColumnDefinition Width="100*"/> <!-- Bouton quitter    -->                   
+                </Grid.ColumnDefinitions>
+
+                <!--  <GroupBox></GroupBox>pb avec les buttons  -->
+                <Button x:Name="btGoBack" Content="Go Back"   Grid.Row="0" Grid.Column="3" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Command="NavigationCommands.PreviousPage" 
+                    ToolTipService.ShowDuration="2500"
+                    ToolTipService.HorizontalOffset="50"
+                    ToolTipService.VerticalOffset="10" Background="#FFEA7575"  >
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <Image Source="/Travail01;component/Images/danger.png" />
+                            <TextBlock FontSize="14" Foreground="Red" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="btSupprimer" Content="Suprimer" Grid.Row="0" Grid.Column="2" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFADCDAA" Click="BtSupprimer_Click"  /> <!--  Command="{Binding btSuprimerClick}"   -->
+                <Button x:Name="btModif"   Content="Modifier" Grid.Row="0" Grid.Column="1" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"   Background="#FFADCDAA" Click="BtModif_Click"  />   <!--  Command="{Binding btModifierClick}"     -->
+                <Button x:Name="btAjouter" Content="Nouveau"  Grid.Row="0" Grid.Column="0" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"   Background="#FFADCDAA" />  <!--   Command="{Binding btNouveauClick}"     -->
+            </Grid>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

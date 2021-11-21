@@ -1,0 +1,262 @@
+﻿<Window xmlns:MyUserControls="clr-namespace:Travail01.View.MyUserControls"  x:Class="Travail01.View.EnregistreNvFormation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Travail01.View"
+        mc:Ignorable="d"
+        Title="EnregistrerNvFormation" Height="500" Width="800">
+    <!--   Commande Routée      -->
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="NavigationCommands.PreviousPage"
+            CanExecute="PreviousPage_CanExecute"
+            Executed="PreviousPage_Executed"  />
+
+    </Window.CommandBindings>
+    <Grid>
+        <!--la fenetre est diviser en 3 lignes et 1 colonne  -->
+        <!--1er: User Control de Haut de Page -->
+        <!--2eme: le corps de la fenetre pour mettre des box en fontion des besoins  -->
+        <!--3eme: User Controle de Bas de Page -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <!-- le Haut de Page  -->
+            <RowDefinition Height="*"/>
+            <!--  le corps du programme      -->
+            <RowDefinition Height="50"/>
+            <!-- le Bas de Page    -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 1ere ligne pas de decoupe Haut de page -->
+        <Grid  Grid.Row="0" Grid.Column="0" >
+            <MyUserControls:hautPage1/>
+        </Grid>
+
+        <!-- 2eme ligne decoupe en 3 colonnes -->
+        <Grid x:Name="grContent"  Grid.Row="1" Grid.Column="0"  Background="#FFF5E2E2"    >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <!--   les coordonnées du stagiaire avec le User Control    -->
+                <ColumnDefinition Width="10"/>
+                <!--     separation        -->
+                <ColumnDefinition Width="*"/>
+                <!--     Les combobox des Pole et Qualification        -->
+            </Grid.ColumnDefinitions>
+
+            <!-- 1ere colonne : User control "InfoFormation" pour les  infos sur la Formations on est decouper en 10 lignes et 2 colonnes -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <!--   <MyUserControls:InfoFormation />    -->
+                <Grid Background="Yellow">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label   Grid.Row="0" Grid.Column="0" Height="25" Width="160" Content="Numero Formation :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtBoxNumForma" Grid.Row="0" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+                    <Label   Grid.Row="1" Grid.Column="0" Height="25" Width="160" Content="Intitulé Formation :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtBoxIntituleForma"    Grid.Row="1" Grid.Column="1" Height="46" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" TextWrapping="Wrap" Margin="0,2"/>
+
+                    <Label   Grid.Row="2" Grid.Column="0" Height="25" Width="160" Content="Heures total Formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtBoxnbHeureForma"      Grid.Row="2" Grid.Column="1" Height="25" Width="280"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                   
+                    <Label   Grid.Row="3" Grid.Column="0" Height="30" Width="160" Content="Heures Cours :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtBoxnbHeureCours"    Grid.Row="3" Grid.Column="1" Height="25" Width="280"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                   
+                    <Label   Grid.Row="4" Grid.Column="0" Height="30" Width="160" Content="Heures stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtBoxnbHeureStg"    Grid.Row="4" Grid.Column="1" Height="25" Width="280"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                  
+                    <Label   Grid.Row="5" Grid.Column="0" Height="30" Width="160" Content="Nombre de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtBoxnbStage"   Grid.Row="5" Grid.Column="1" Height="25" Width="280"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                
+                    <Label   Grid.Row="6" Grid.Column="0" Height="30" Width="160" Content="Peride de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtBoxPeriodestg"   Grid.Row="6" Grid.Column="1" Height="25" Width="280"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                  
+                    <Label   Grid.Row="7" Grid.Column="0" Height="30" Width="160" Content="Date debut formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                  
+             <!--       <TextBox x:Name="txtBoxdtDebForma"   Grid.Row="7" Grid.Column="1" Height="25" Width="280"  FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    -->
+                    <DatePicker x:Name="dpDebForma"  Grid.Row="7" Grid.Column="1" Language="fr-FR" SelectedDate="{Binding DateduJour}"  Height="25" Width="275" VerticalAlignment="Center" HorizontalAlignment="Left"  />
+                    
+                    <Label   Grid.Row="8" Grid.Column="0" Height="30" Width="160" Content="Date fin formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    
+             <!--       <TextBox x:Name="txtBoxdtFinForma"  Grid.Row="8" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
+                    -->
+                    <DatePicker x:Name="dpFinForma"  Grid.Row="8" Grid.Column="1" Language="fr-FR" SelectedDate="{Binding DateduJourFin}" Height="25" Width="275" VerticalAlignment="Center" HorizontalAlignment="Left"   />
+
+                    <!-- 
+                    idForma
+                     txtBoxNumForma
+                     txtBoxIntituleForma                       
+                     txtBoxnbHeureForma 
+                     txtBoxnbHeureCours
+                     txtBoxnbHeureStg                     
+                     txtBoxdtDebForma 
+                     txtBoxdtFinForma  
+                     txtBoxnbStage    
+                     txtBoxPeriodestg  
+                    idPole
+                    idQualification
+                    
+                    -->
+
+
+
+
+
+                </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </Grid>
+
+            <!-- 2eme colonne separateur -->
+            <Grid Grid.Row="0" Grid.Column="1"  Background="Green"  />
+
+            <!-- 3 colonne User Controle InfoPole Qualif : Combobox Pole et Qualification -->
+            <Grid Grid.Row="0" Grid.Column="2">
+                <!--    <MyUserControls:InfoPoleQualif />   -->
+                <Grid Background="MediumVioletRed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                        <!-- label Pole -->
+                        <RowDefinition Height="*"/>
+                        <!--Combo Pole-->
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="40"/>
+                        <!-- Label quaif  -->
+                        <RowDefinition Height="*"/>
+                        <!--  Combo Qualif -->
+
+                        <RowDefinition Height="50"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="1" Grid.Column="1" Content="Les Poles" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"    />
+                    <ComboBox x:Name="comboBoxPole" Grid.Row="2" Grid.Column="1" SelectionChanged="ComboBoxPole_SelectionChanged"  >
+
+                    </ComboBox>
+
+                    <Label Grid.Row="4" Grid.Column="1" Content="Qualification" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"                />
+                    <ComboBox x:Name="comboBoxQualif"  Grid.Row="5" Grid.Column="1" SelectionChanged="ComboBoxQualif_SelectionChanged" >
+
+                    </ComboBox>
+                </Grid>
+
+
+
+
+
+            </Grid>
+        </Grid>
+        <!--   Fin de la 2eme ligne  -->
+
+        <!-- 3eme ligne avec les boutons  Nouveau, Modifier, supprimer et Quitter -->
+        <!-- decoupé en 1 ligne et 2 colonnes -->
+        <Grid Grid.Row="2" Grid.Column="0" Background="#FFFB7777"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <!-- ligne des Boutons -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="337*"/>
+                <!-- Colonne Vide ou info sur la connexion-->
+                <ColumnDefinition Width="400"/>
+                <!-- Colonnes des 4 boutons : " Nouveau, Modifier, supprimer et Quitter"   -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Colonne Vide ou info sur la connexion      -->
+            <GroupBox Grid.ColumnSpan="2">
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <!-- Ici on met des info sur la connexion -->
+                    <Grid>
+                        <!-- je divise en 1 lign et 2 colonne-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Row="0" Grid.Column="0" Height="25" Width="150"  Text="Etat de la connexion :" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="25" Width="150"  Text="{Binding Path=InfoConnexion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Grid>
+            </GroupBox>
+
+            <!-- Ici la Colonne avec les differents boutons !! -->
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <!--  Bouton Nouveau    -->
+                    <ColumnDefinition Width="100"/>
+                    <!--  Bouton Modif      -->
+                    <ColumnDefinition Width="100"/>
+                    <!--  Bouton Supprimer  -->
+                    <ColumnDefinition Width="100*"/>
+                    <!-- Bouton quitter    -->
+                </Grid.ColumnDefinitions>
+
+                <!--  <GroupBox></GroupBox>pb avec les buttons  -->
+                <Button x:Name="btGoBack" Content="Go Back" Grid.Row="0" Grid.Column="3" Height="50" Width="100" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Command="NavigationCommands.PreviousPage" 
+                    ToolTipService.ShowDuration="2500"
+                    ToolTipService.HorizontalOffset="50"
+                    ToolTipService.VerticalOffset="10" Background="#FFEA7575"  >
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <Image Source="/Travail01;component/Images/danger.png" />
+                            <TextBlock FontSize="14" Foreground="Red" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="btSupprimer" Content="Suprimer" Grid.Row="0" Grid.Column="2" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFADCDAA"  />
+                <Button x:Name="btModif"   Content="Modifier" Grid.Row="0" Grid.Column="1" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"   Background="#FFADCDAA"/>
+                <Button x:Name="btAjouter" Content="Ajouter"  Grid.Row="0" Grid.Column="0" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"    Background="#FFADCDAA" Click="BtAjouter_Click" />
+                <!--   Command="{Binding btNouveauClick}"    -->
+            </Grid>
+        </Grid>
+        <!--  fin de la 3eme lignes-->
+
+    </Grid>
+</Window>

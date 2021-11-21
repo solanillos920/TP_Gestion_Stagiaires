@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Travail01.View.MyUserControls.InfoFormation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Travail01.View.MyUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="410">
+    <Grid Background="Yellow">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Intitulé :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="Concepteur Developpeur d'application" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Numero :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="101" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Heures total :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="1490" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Heures Cours :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="1070" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Heures stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="420" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Nombre de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="Peride de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="Date debut formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="16/12/2020" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="8" Grid.Column="0" Content="Date fin formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="30/11/2021" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
+
+
+
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>

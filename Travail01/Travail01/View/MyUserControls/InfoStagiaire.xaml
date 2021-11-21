@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Travail01.View.MyUserControls.InfoStagiaire"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Travail01.View.MyUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="210" d:DesignWidth="320">
+    <Grid Grid.Row="0" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Nom :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="Dupond" ToolTip="Mettez le Nom du satgiaire" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Prénom :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="Polo" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Date de naissance :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="12-45-1920" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="N° sécurité Social :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="1 45 89 56 123 456" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Adresse :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="6 rue des cloches" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Code Postal :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="59500" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="Ville :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="Douai" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,216 @@
+﻿<Window xmlns:MyUserControls="clr-namespace:Travail01.View.MyUserControls"  x:Class="Travail01.View.ModifSupprimEntreprise"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Travail01.View"
+        mc:Ignorable="d"
+        Title="ModifSupprimEntreprise" Height="450" Width="800">
+    <!--   Commande Routée      -->
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="NavigationCommands.PreviousPage"
+            CanExecute="PreviousPage_CanExecute"
+            Executed="PreviousPage_Executed"  />
+
+    </Window.CommandBindings>
+    <Grid>
+
+        <!--la fenetre est diviser en 3 lignes -->
+        <!--1er: User Control de Haut de Page -->
+        <!--2eme: le corps de la fenetre pour mettre des box en fontion des besoins    -->
+        <!--3eme: User Controle de Bas de Page -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!-- 1ere ligne pas de decoupe Haut de page -->
+        <MyUserControls:hautPage1 Grid.Row="0" Grid.Column="0"/>
+
+
+        <!-- 2eme ligne : decoupe en 2 colonnes -->
+        <Grid x:Name="grContent" Grid.Row="1" Grid.Column="0"  Background="#FFF5E2E2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/> <!--les coordonnées du stagiaire  -->               
+                <ColumnDefinition Width="*"/>   <!-- La combobox des formation-->               
+            </Grid.ColumnDefinitions>
+
+            <!-- User control "InfoEntreprise" pour les  coordonnées du Entreprise on est decouper en 10 lignes et 2 colonnes -->
+            <Grid Grid.Row="0" Grid.Column="0">
+           <!--       <MyUserControls:InfoEntreprise />     -->
+                 <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>  <!--  Nom -->                  
+                    <RowDefinition Height="35"/>  <!--  Prenom -->                  
+                    <RowDefinition Height="35"/>  <!--  date naissance    -->                   
+                    <RowDefinition Height="35"/>  <!--  n° secu     -->                  
+                    <RowDefinition Height="35"/>  <!--  adresse   -->                   
+                    <RowDefinition Height="35"/>  <!--  code postale   -->                 
+                    <RowDefinition Height="35"/>  <!--  ville    -->                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>   <!--  label   -->                 
+                    <ColumnDefinition Width="295"/>  <!--  textBox   -->                  
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Nom entreprise :" Height="30" Width="138"   FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtNomStagiaire" Grid.Row="0" Grid.Column="1"   Height="30" Width="280"  ToolTip="Mettre TOTO" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Nom Dirigeant :" Height="30" Width="138" FontWeight="Bold"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtPrenomStagiaire" Grid.Row="1" Grid.Column="1"   Height="30" Width="280"           HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Téléphone :" Height="30" Width="138"  FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,0,0"/>
+                <TextBox x:Name="txtDtNaissanceStagiaire" Grid.Row="2" Grid.Column="1"   Height="30" Width="280"        HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="N° de SIRET :" Height="30" Width="138"    FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtSecuStagiaire" Grid.Row="3" Grid.Column="1" Height="30" Width="280"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" />
+
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Adresse :"  Height="30" Width="138"   FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtAdresseStagiaire" Grid.Row="4" Grid.Column="1" Height="30" Width="280"   HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Content="Code Postal :" Height="30" Width="138"   FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,6,0,0"/>
+                <TextBox x:Name="txtCPStagiaire" Grid.Row="5" Grid.Column="1"  Height="30" Width="280"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+                <Label Grid.Row="6" Grid.Column="0" Content="Ville :" Height="30" Width="138"  FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtVilleStagiaire" Grid.Row="6" Grid.Column="1"  Height="30" Width="280"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+
+
+
+                
+                
+                
+                
+                
+                
+            </Grid>
+
+            <!-- Decoupe en 1 ligne et 2 colonnes pour les combobox des numéro SIRET (Nom Entreprise ) -->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/> <!-- Combo Numero SIRET-->                   
+                    <ColumnDefinition Width="*"/> <!-- Combo Numero Nom Entreprise-->                   
+                </Grid.ColumnDefinitions>
+
+                <!--Decoupe en 2 lignes et 1 colonne pourla Combo Numero secu-->
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/> <!-- Son label -->                       
+                        <RowDefinition Height="*"/>  <!-- la combobox -->                     
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="n° SIRET" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="25,26,33,0" VerticalAlignment="Top" Width="113" Height="147" />
+
+                </Grid>
+
+                <!--Decoupe en 2 lignes et 1 colonne pourla Combo Nom + Prenom-->
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>  <!-- Son label -->                      
+                        <RowDefinition Height="*"/>   <!-- la combobox -->                    
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="Nom Entreprise" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="23,26,22,0" VerticalAlignment="Top" Width="126" Height="147" />
+
+                </Grid>
+            </Grid>
+        </Grid>
+        <!-- Fin de la 2eme ligne -->
+
+
+
+
+
+
+
+
+        <!-- 3eme ligne avec les boutons  Nouveau, Modifier, supprimer et Quitter -->
+        <!-- decoupé en 1 ligne et 2 colonnes -->
+        <Grid Grid.Row="2" Grid.Column="0" Background="#FFFB7777"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>      <!-- ligne des Boutons -->               
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>    <!-- Colonne Vide ou info sur la connexion-->               
+                <ColumnDefinition Width="400"/>  <!-- Colonnes des 4 boutons : " Nouveau, Modifier, supprimer et Quitter"   -->              
+            </Grid.ColumnDefinitions>
+
+            <!-- Colonne Vide ou info sur la connexion      -->
+            <GroupBox>
+                <Grid Grid.Row="0" Grid.Column="0">  <!-- Ici on met des info sur la connexion -->                  
+                    <Grid>   <!-- je divise en 1 lign et 2 colonne-->                     
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Row="0" Grid.Column="0" Height="24" Width="150"  Text="État de la connexion :" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,229,10" Grid.ColumnSpan="2" />
+                        <TextBox Grid.Row="0" Grid.Column="1" Height="25" Width="150"  Text="{Binding Path=InfoConnexion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Grid>
+            </GroupBox>
+
+            <!-- Ici la Colonne avec les differents boutons !! -->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>  <!--  Bouton Nouveau    -->                  
+                    <ColumnDefinition Width="100"/>  <!--  Bouton Modif      -->                   
+                    <ColumnDefinition Width="100"/>  <!--  Bouton Supprimer  -->                
+                    <ColumnDefinition Width="100*"/> <!-- Bouton quitter    -->                   
+                </Grid.ColumnDefinitions>
+
+                <!--  <GroupBox></GroupBox>pb avec les buttons  -->
+                <Button x:Name="btGoBack" Content="Go Back"  Grid.Row="0" Grid.Column="3" Height="50" Width="100" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Command="NavigationCommands.PreviousPage" 
+                    ToolTipService.ShowDuration="2500"
+                    ToolTipService.HorizontalOffset="50"
+                    ToolTipService.VerticalOffset="10" Background="#FFEA7575"   >
+                    <Button.ToolTip>
+                        <StackPanel>
+                            <Image Source="/Travail01;component/Images/danger.png" />
+                            <TextBlock FontSize="14" Foreground="Red" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button.ToolTip>
+                </Button>
+                
+                <Button x:Name="btSupprimer" Content="Supprimer" Grid.Row="0" Grid.Column="2" Height="50" Width="100" FontWeight="Bold" FontSize="16" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FFADCDAA"   />  <!-- Command="{Binding btSuprimerClick}"   -->                
+                <Button x:Name="btModif"     Content="Modifier" Grid.Row="0" Grid.Column="1" Height="50" Width="100" FontWeight="Bold" FontSize="16" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FFADCDAA"  />   <!--  Command="{Binding btModifierClick}"  -->             
+                <Button x:Name="btAjouter"   Content="Ajouter"  Grid.Row="0" Grid.Column="0" Height="50" Width="100" FontWeight="Bold" FontSize="16" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFADCDAA"   />
+            </Grid>
+        </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Window>

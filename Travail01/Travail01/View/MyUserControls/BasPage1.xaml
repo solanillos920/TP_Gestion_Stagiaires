@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="Travail01.View.MyUserControls.BasPage1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Travail01.View.MyUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="800">
+    
+    <!-- User Control de Bas de page Decoupé en 1 ligne et 2 Colonnes -->
+    <Grid Background="#FFFB7777"  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/><!--  decoupé en 1 lgne 2 colonnes  -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>   <!-- Colonne vide -->
+            <ColumnDefinition Width="400"/> <!-- Colonne avec les differents boutons !! -->
+        </Grid.ColumnDefinitions>
+        
+        <!-- Ici on met des info sur la connexion -->
+        <Grid Grid.Row="0" Grid.Column="0"> 
+            <Grid><!-- je divise en 1 lign et 2 colonne-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="0" Grid.Column="0" Height="25" Width="150" Text="Etat de la connexion :" FontSize="14" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <TextBox Grid.Row="0" Grid.Column="1" Height="25" Width="230" Text="{Binding Path=InfoConnexion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>          
+        </Grid>
+  
+        <!-- Ici la Colonne avec les differents boutons !! -->   
+        <Grid Grid.Row="0" Grid.Column="1">        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+
+         <!--     <GroupBox></GroupBox>pb avec les buttons-->
+            <Button x:Name="btQuit"  Content="Quitter"  Grid.Row="0" Grid.Column="3" Height="50" Width="100" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding btQuitterClick}"
+                    ToolTipService.ShowDuration="2500"
+                    ToolTipService.HorizontalOffset="50"
+                    ToolTipService.VerticalOffset="10" Click="BtQuit_Click" >
+                <Button.ToolTip>
+                    <StackPanel> 
+                      <Image Source="/Travail01;component/Images/danger.png" />
+                        <TextBlock FontSize="14" Foreground="Red" FontWeight="Bold">
+                            ATTENTION etes VOUS sur ?!!
+                        </TextBlock>
+                         
+                    </StackPanel>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="btSupprime" Content="Supprimer" Grid.Row="0" Grid.Column="2" Height="50" Width="100" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding btSuprimerClick}" Visibility="Hidden" Click="BtSupprime_Click" />
+            <Button x:Name="btModif"   Content="Modifier" Grid.Row="0" Grid.Column="1" Height="50" Width="100" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding btModifierClick}" Visibility="Hidden" Click="BtModif_Click" />
+            <Button x:Name="btNouveau" Content="Nouveau"  Grid.Row="0" Grid.Column="0" Height="50" Width="100" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding btNouveauClick}"  Visibility="Hidden" Click="BtNouveau_Click"  />            
+        </Grid>
+    </Grid>
+</UserControl>

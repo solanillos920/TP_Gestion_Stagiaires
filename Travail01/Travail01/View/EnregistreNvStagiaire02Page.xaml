@@ -1,0 +1,65 @@
+﻿<Page xmlns:MyUserControls="clr-namespace:Travail01.View.MyUserControls"  x:Class="Travail01.View.EnregistreNvStagiaire02Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Travail01.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EnregistreNvStagiaire02Page">
+
+    <Grid>
+        <!--la fenetre est diviser en 3 lignes -->
+        <!--1er: User Control de Haut de Page -->
+        <!--2eme: le corps de la fenetre pour mettre des box en fontion des besoins    -->
+        <!--3eme: User Controle de Bas de Page -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!-- 1ere ligne pas de decoupe Haut de page -->
+        <MyUserControls:hautPage1 Grid.Row="0" Grid.Column="0"/>
+
+        <!-- 2eme ligne decoupe en 2 colonnes -->
+        <Grid x:Name="grContent" Grid.Row="1" Grid.Column="0" Background="#FFF5E2E2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <!-- les coordonnées du stagiaire avec le User Control-->
+                <ColumnDefinition Width="*"/>
+                <!-- La combobox des formation -->
+            </Grid.ColumnDefinitions>
+
+            <!-- User control "InfoStagiaire" pour les  coordonnées du stagiaire  -->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <MyUserControls:InfoStagiaire />
+            </Grid>
+
+            <!-- Decoupe en 1 ligne et 2 colonnes pour la combo des formations et son label-->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <!-- Son label -->
+                    <RowDefinition Height="*"/>
+                    <!-- la combobox -->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Formation" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="51,26,51,0" VerticalAlignment="Top" Width="240" Height="147" >
+                    <ComboBoxItem Content="toto"/>
+                </ComboBox>
+            </Grid>
+        </Grid>
+
+        <!-- 3eme ligne pas de dcoupe c'est le bas de page   -->
+        <MyUserControls:BasPage1 Grid.Row="2" Grid.Column="0" />
+    </Grid>
+</Page>

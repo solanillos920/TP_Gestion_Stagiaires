@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Travail01.View.MyUserControls.InfoQualif"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Travail01.View.MyUserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="210" d:DesignWidth="320">
+    <Grid VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+        
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135"/>
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        <Grid  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Yellow" HorizontalAlignment="Center" VerticalAlignment="Center"    >
+             <Label Content="Nom du Certificat :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+       
+        <Grid  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="Red"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Content="Nom du Certificat :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="BAC Pro" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Numero Certificat :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="12546" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Niveau qualification :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="1409" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Descrition :" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="Il etait une fois.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. " VerticalAlignment="Top" FontWeight="Bold" FontSize="14" TextWrapping="Wrap"  Background="Yellow"  />
+       
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>
