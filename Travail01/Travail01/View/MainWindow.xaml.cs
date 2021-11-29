@@ -20,7 +20,7 @@ namespace Travail01.View
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
 
-        // Attribut
+        // Attributs
         string txtHautPage;
 
         public string TxtHautPage { get => txtHautPage; set { txtHautPage = value; OnPropertyChanged("TxtHautPage");  } }
@@ -70,8 +70,8 @@ namespace Travail01.View
         private void ActionQuitter(object parametre)
         {
             // juste un message 
-            //  MessageBox.Show("Etes vous sur de vouloir quitter l'application : ?");
-            // /Message avec réponse avec yes / non + icon Warning + preselection Non
+            //  MessageBox.Show("Etes vous sûr de vouloir quitter l'application : ?");
+            // /Message avec réponse avec yes / no + icon Warning + preselection Non
             MessageBoxResult selection = MessageBox.Show("Etes vous sur de vouloir quitter l'application : ?", "repondre", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
 
             switch (selection)
@@ -99,7 +99,7 @@ namespace Travail01.View
 
             string nomCmd;
             // dans cet exercice nous avons deux boutons associés à une même commande de navigation NavigationCommands.GoToPage
-            // lorsque la méthode GoToPage_Executed est appelée il faut tester quel est le bouton qui a déclencher l'appel de la commande
+            // lorsque la méthode GoToPage_Executed est appelée il faut tester quel est le bouton qui a déclenché l'appel de la commande
             // on teste donc les paramètres ExecutedRoutedEventArgs et plus particulièrement le champ Source afin d'en extraire le nom
             // de l'objet qui a appelé la commande, on réalise un cast avec un FrameworkElement de manière à s'affranchir du type du sender
             // la conversion choisira automatiquement le bon type

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;// il faut mettre ça mais ça et ça marche !!
+using MySql.Data.MySqlClient;// il faut mettre using pour avoir le connecteur MySql
 
 namespace Travail01.ViewModel
 {
@@ -92,7 +92,7 @@ namespace Travail01.ViewModel
         }
 
 
-        // je surcharge de la Methode RequeteSql en passant l'objet  commande de type MySqlCommand pour la requete preparée
+        // je surcharge la Methode RequeteSql en passant l'objet  commande de type MySqlCommand pour la requete preparée
         public MySqlDataReader RequeteSql(MySqlCommand commande)
         {
             // MySqlCommand CmdSql = new MySqlCommand(Requete, Connexion); // car c'est fait dans le BLL_tititoto
@@ -123,7 +123,7 @@ namespace Travail01.ViewModel
             {
                 try
                 {
-                    NbrLignesModifiees = CmdSqlNoData.ExecuteNonQuery();// mehode qui peret d'executer la requete
+                    NbrLignesModifiees = CmdSqlNoData.ExecuteNonQuery();// methode qui permet d'executer la requete
                 }
                 catch (MySqlException Er)
                 {
@@ -135,7 +135,7 @@ namespace Travail01.ViewModel
         }
 
 
-        // je surcharge de la Methode RequeteSql en passant l'objet  commande de type MySqlCommand pour la requete preparée
+        // je surcharge la Methode RequeteSql en passant l'objet  commande de type MySqlCommand pour la requete preparée
         public int RequeteNoData(MySqlCommand commande)
         {
             // MySqlCommand CmdSqlNoData = new MySqlCommand(Requete, Connexion); // car c'est fait dans le BLL_tititoto

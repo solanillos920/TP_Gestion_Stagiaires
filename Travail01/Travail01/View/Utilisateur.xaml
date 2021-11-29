@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travail01.View"
         mc:Ignorable="d"
-        Title="Utilisateur" Height="450" Width="800">
+        Title="Utilisateur" Height="450" Width="800"
+        Icon="/Travail01;component/Images/douai1.ico">
+    
     <Grid>
         <!--la fenetre est diviser en 3 lignes -->
         <!--1er: User Control de Haut de Page -->

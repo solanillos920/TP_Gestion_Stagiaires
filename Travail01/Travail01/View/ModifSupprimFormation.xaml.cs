@@ -29,7 +29,7 @@ namespace Travail01.View
 
         public string TxtHautPage { get => txtHautPage; set { txtHautPage = value; OnPropertyChanged("TxtHautPage"); } }
 
-        // getter setter pour les dates du stage 
+        // Getter Setter pour les dates du stage 
         public string DateduJourDeb { get => dateduJourDeb; set { dateduJourDeb = value; OnPropertyChanged("DateduJourDeb"); } }
         public string DateduJourFin { get => dateduJourFin; set { dateduJourFin = value; OnPropertyChanged("DateduJourFin"); } }
 
@@ -80,7 +80,7 @@ namespace Travail01.View
             WindowStartupLocation = WindowStartupLocation.CenterScreen; // au Milieur de l'écran
 
             // changer le titre de la page xaml
-            this.Title = " Gestion des Stagiaire ";
+            this.Title = " Gestion des Stagiaires ";
             TxtHautPage = " Modifier ou Supprimer une Formation ";
 
             // gestion des boutons
@@ -106,9 +106,9 @@ namespace Travail01.View
             this.DataContext = this;
 
 
-            //replissage de la comboBox Formation par les intitulé de Formation
+            //remplissage de la comboBox Formation par les intitulés de Formation
             resultForma = formaBDD.ListeForma();// resultate = fonction Listeforma() de type "List<string>" de la classe  BLL_Formation
-            foreach (string forma in resultForma)// a chaque iteration je prends un element de ma liste et le mets dans la variable forma
+            foreach (string forma in resultForma)// à chaque iteration je prends un element de ma liste et le mets dans la variable forma
             {
                 string[] tabString = forma.Split('/'); // Divise une chaîne en sous-chaînes en fonction de caractères de délimitation spécifiés ici '/' et le mets dans un tableau             
                 comboBoxForma.Items.Add(tabString[1]); //Dans comboBoxforma j'ajoute un item
@@ -116,19 +116,19 @@ namespace Travail01.View
 
             //replissage de la comboBox Pole
             resultPole = poleBDD.ListePole();// resultate = fonction ListePole() de type "List<string>" de la classe  BLL_Pole
-            foreach (string pole in resultPole)// a chaque iteration je prends un element de ma liste et le mets dans la variable pole
+            foreach (string pole in resultPole)// à chaque iteration je prends un element de ma liste et le mets dans la variable pole
             {
                 string[] tabString = pole.Split('/'); // Divise une chaîne en sous-chaînes en fonction de caractères de délimitation spécifiés ici '/' et le mets dans un tableau             
                 comboBoxPole.Items.Add(tabString[1]); //Dans comboBoxPole j'ajoute un item
 
-                // je recupere la liste des numero de poles
+                // je recupere la liste des numeros de poles
                 lesPoles.Add(tabString[1]);
 
             }
 
-            //replissage de la comboBox Qualification
+            //remplissage de la comboBox Qualification
             resultQualif = qualifBDD.ListeQualif();// resultate = fonction ListeQualif() de type "List<string>" de la classe  BLL_Qualification()
-            foreach (string qualif in resultQualif)// a chaque iteration je prends un element de ma liste et le mets dans la variable pole
+            foreach (string qualif in resultQualif)// à chaque iteration je prends un element de ma liste et le mets dans la variable pole
             {
                 string[] tabString = qualif.Split('/'); // Divise une chaîne en sous-chaînes en fonction de caractères de délimitation spécifiés ici '/' et le mets dans un tableau             
                 comboBoxQualif.Items.Add(tabString[1]); //Dans comboBoxQualif j'ajoute un item
@@ -152,19 +152,19 @@ namespace Travail01.View
         /* ---------- FIN de la Gestion du Go Back ------------   */
 
 
-        /*  Quand je selectionne une formation dans le combo Formation : je mets à jour toutes les données  " TextBox, Combo, TimePicker " qui vant ensuite être affichées     */
+        /*  Quand je selectionne une formation dans le combo Formation : je mets à jour toutes les données  " TextBox, Combo, TimePicker " qui vont ensuite être affichées     */
         private void ComboBoxForma_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = comboBoxForma.SelectedIndex;
 
-            /*---- declaration des variable pour la mise en forme des date dans du DtaPicker vers la base de données -----*/
+            /*---- declaration des variables pour la mise en forme des datesdans du DtaPicker vers la base de données -----*/
             string formatted = string.Empty; // bien que vide il faut lui préciser que la chaine est vide sinon il pense que c'est indéterminé!!!
             string formattedFin = string.Empty; // idem
 
 
             // instancie la classe " DTO"
             DTO_Formation SelectFormaDTO = new DTO_Formation();
-            // de la liste "formation via Combo" persité vers les Setters pour les passé en parametre vers la fonction "AfficherInfosFormation(SelectFormaDTO)"
+            // de la liste "formation via Combo" persisté vers les Setters pour les passer en parametre vers la fonction "AfficherInfosFormation(SelectFormaDTO)"
             SelectFormaDTO.NumForma = resultForma[index].Split('/')[1];
             SelectFormaDTO.IntituleFormation = resultForma[index].Split('/')[2];
             SelectFormaDTO.NbHeureForma = Convert.ToInt16(resultForma[index].Split('/')[3]); // c'est du text "string " et il attend du " int"
@@ -175,14 +175,14 @@ namespace Travail01.View
             /*--------------------------------  -----------------------------*/
 
             /*  ----  ATTENTION au format pour les dates --- */
-            /*   ---- Mise en forme des date avec le dateTime du DatePicker  ----- */
+            /*   ---- Mise en forme des dates avec le dateTime du DatePicker  ----- */
 
             // mettre le DatePiker à la bonne date " DateTime( année,mois,jour,heur,mn,sec ) =>( 2021, 10, 25, 7, 47, 0)
 
             //pour la date debut formation = resultforma[index].Split('/')[8]; jour->[8],  Mois->[9], Année->[10]                       
 
             // ce que je reçois de la base
-            string interYearDeb = resultForma[index].Split('/')[8].Substring(0, 4); //  Substring(0, 4) => je prends le champ année et on retient que les 4 1ere caractere en partant de 0
+            string interYearDeb = resultForma[index].Split('/')[8].Substring(0, 4); //  Substring(0, 4) => je prends le champ année et on retient que les 4 1ers caracteres en partant de 0
 
             int anneeDebut = Convert.ToInt32(interYearDeb);
             int moisDebut = Convert.ToInt32(resultForma[index].Split('/')[7]);
@@ -199,7 +199,7 @@ namespace Travail01.View
             //pour la date Fin formation = resultForma[index].Split('/')[11]; jour->[11],  Mois->[12], Année->[13]
 
             // ce que je reçois de la base 
-            string interYearFin = resultForma[index].Split('/')[11].Substring(0, 4); //  Substring(0, 4) => je prends le champ année et on retient que les 4 1ere caractere en partant de 0
+            string interYearFin = resultForma[index].Split('/')[11].Substring(0, 4); //  Substring(0, 4) => je prends le champ année et on retient que les 4 1ers caracteres en partant de 0
 
             int anneeFin = Convert.ToInt32(interYearFin);
             int moisFin = Convert.ToInt32(resultForma[index].Split('/')[10]);
@@ -263,7 +263,7 @@ namespace Travail01.View
         // Procedure Modifier une Formation
         private void BtModif_Click(object sender, RoutedEventArgs e)
         {
-            // le 3 index des combox
+            // les 3 index des combox
             int indexPole = comboBoxPole.SelectedIndex;
             int indexQualif = comboBoxQualif.SelectedIndex;
             int indexForma = comboBoxForma.SelectedIndex;
@@ -271,7 +271,7 @@ namespace Travail01.View
             // modif c'est comme ajouter pout le datapacker
             /*       debut DateTime   */
 
-            string formatted = string.Empty;// bien que vide il faut lui précisé que la chaine est vide sinon il pense que c'est indeterminé!!!
+            string formatted = string.Empty;// bien que vide il faut lui préciser que la chaine est vide sinon il pense que c'est indeterminé!!!
             string formattedFin = string.Empty; // idem
             
             // selection la date debut
@@ -284,19 +284,19 @@ namespace Travail01.View
 
             if (selectedDate.HasValue) // si il y a une valeur => true
             {
-                formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au forma string : mmois/Jour/Année
+                formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au format string : mmois/Jour/Année
                 MessageBox.Show(formatted, "c'est la date debut selectionné!! ");
             }
 
             if (selectedDate.HasValue)
             {
-                formattedFin = selectedDateFin.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au forma string : mmois/Jour/Année
+                formattedFin = selectedDateFin.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au format string : mmois/Jour/Année
                 MessageBox.Show(formattedFin, "c'est la date fin selectionné!! ");
 
             }
                                     
             string[] formaDate = formatted.Split('.'); // car le separateur entre :" jour . mois . année " est un point
-            string dateformaBase = formaDate[2] + "-" + formaDate[1] + "-" + formaDate[0];  // la date de debut stage au forma pour la base
+            string dateformaBase = formaDate[2] + "-" + formaDate[1] + "-" + formaDate[0];  // la date de debut stage au format pour la base
                                                                                             // plus besoin car DataPicker est mis au format francais dans Xaml ... Donc formatted est au bon format pour le DataPicker
                                                                                             //  string datformaAffichage = formaDate[1] + "-" + formaDate[0] + "-" + formaDate[2]; // plus besoin
 
@@ -346,7 +346,7 @@ namespace Travail01.View
             // modif c'est comme ajouter pout le datapacker
             /*       debut DateTime   */
 
-            string formatted = string.Empty;// bien que vide il faut lui précisé que la chaine est vide sinon il pense que c'est indeterminé!!!
+            string formatted = string.Empty;// bien que vide il faut lui préciser que la chaine est vide sinon il pense que c'est indeterminé!!!
             string formattedFin = string.Empty; // idem
                         
             // selection la date debut
@@ -359,18 +359,18 @@ namespace Travail01.View
 
             if (selectedDate.HasValue) // si il y a une valeur => true
             {
-                formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au forma string : mmois/Jour/Année
+                formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au format string : mmois/Jour/Année
                 MessageBox.Show(formatted, "c'est la date debut selectionné!! ");
             }
 
             if (selectedDate.HasValue)
             {
-                formattedFin = selectedDateFin.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au forma string : mmois/Jour/Année
+                formattedFin = selectedDateFin.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au format string : mmois/Jour/Année
                 MessageBox.Show(formattedFin, "c'est la date fin selectionné!! ");
             }
             
             string[] formaDate = formatted.Split('.'); // car le separateur entre :" jour . mois . année " est un point
-            string dateformaBase = formaDate[2] + "-" + formaDate[1] + "-" + formaDate[0];  // la date de debut stage au forma pour la base
+            string dateformaBase = formaDate[2] + "-" + formaDate[1] + "-" + formaDate[0];  // la date de debut stage au format pour la base
                                                                                             // plus besoin car DataPicker est mis au format francais dans Xaml ... Donc formatted est au bon format pour le DataPicker
                                                                                             //  string datformaAffichage = formaDate[1] + "-" + formaDate[0] + "-" + formaDate[2]; // plus besoin
 
@@ -380,7 +380,7 @@ namespace Travail01.View
             /* -------      fin DateTime   ------  */
 
             
-            // de la liste "formation via Combo" persité vers la base de données
+            // de la liste "formation via Combo" persisté vers la base de données
             // tjrs même pb on ajoute 1 au index car en informatique le 1er commence à : 0
             DTO_Formation SelecltFormaDTO = new DTO_Formation(indexForma + 1, txtBoxNumForma.Text, txtBoxIntituleForma.Text,
                                                 Convert.ToInt16(txtBoxnbHeureForma.Text),

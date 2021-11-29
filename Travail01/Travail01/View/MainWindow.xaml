@@ -51,13 +51,13 @@
                     <!--   <MenuItem Header="Suprimer"  Height="50" Width="190" FontSize="16" FontWeight="Bold"/>  -->
                 </MenuItem>
 
-                <MenuItem x:Name="goGestionStage" Header="Stages / Entreprise" Height="50" Width="190" FontSize="16" FontWeight="Bold" Command="NavigationCommands.GoToPage"   >
+                <MenuItem x:Name="goGestionStage" Header="Stages / Entreprises" Height="50" Width="190" FontSize="16" FontWeight="Bold" Command="NavigationCommands.GoToPage"   >
                 <!--    <MenuItem Header="Nouveaux"  Height="50" Width="190" FontSize="16" FontWeight="Bold" />
                     <MenuItem Header="Modification"  Height="50" Width="190" FontSize="16" FontWeight="Bold" />
                     <MenuItem Header="Suprimer"  Height="50" Width="190" FontSize="16" FontWeight="Bold"/>  -->
                 </MenuItem>
 
-                <MenuItem Header="Parametres" Height="50" Width="190" FontSize="16" FontWeight="Bold">
+                <MenuItem Header="Paramètres" Height="50" Width="190" FontSize="16" FontWeight="Bold">
                     <MenuItem Header="Qualification"  Height="50" Width="190" FontSize="16" FontWeight="Bold">
                         <MenuItem x:Name="goNvQualif" Header="Nouvelle Qualification"    Height="50" Width="260" FontSize="16" FontWeight="Bold" Command="NavigationCommands.GoToPage"  />
                         <MenuItem x:Name="goModifSupprimQualif" Header="Modifie/Supprime"    Height="50" Width="230" FontSize="16" FontWeight="Bold" Command="NavigationCommands.GoToPage"  />                      
@@ -78,7 +78,8 @@
             <!--  photo de fond -->
             <Grid x:Name="grContent" Grid.Row="1" Grid.Column="0"  Background="#FFF5E2E2" >
                 <GroupBox>
-                      <Image Source="/Travail01;component/Images/windows.jpeg"  /> 
+                   <!--   <Image Source="/Travail01;component/Images/windows.jpeg"  /> -->
+                        <Image Source="/Travail01;component/Images/Edmond_labbe.jpg"  /> 
                 </GroupBox>
             </Grid>                      
         </Grid>

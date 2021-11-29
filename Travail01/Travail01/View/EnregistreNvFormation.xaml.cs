@@ -22,7 +22,7 @@ namespace Travail01.View
         // Attributs
         string txtHautPage;
 
-        // Pour les date du satge
+        // Pour les dates du satge
         string dateduJour; // la date du jour pour le DatePicker debut de stage
         string dateduJourFin; // la date du jour pour le DatePicker fin de stage
 
@@ -90,8 +90,8 @@ namespace Travail01.View
 
 
             // changer le titre de la page xaml
-            this.Title = " Gestion des Stagiaire ";
-            TxtHautPage = " Enregistrement nouvelle Formation";
+            this.Title = " Gestion des Stagiaires ";
+            TxtHautPage = " Enregistrement Nouvelle Formation";
             // gestion des boutons
             btModif.IsEnabled = false;
             btAjouter.IsEnabled = false;
@@ -99,7 +99,7 @@ namespace Travail01.View
 
        //     dpDebForma.IsEnabled = false;
 
-            // On inhibe les textbox tant que les combobox sont pas utilisés
+            // On inhibe les textbox tant que les combobox ne sont pas utilisés
             txtBoxNumForma.IsEnabled = false;
             txtBoxIntituleForma.IsEnabled = false;
             txtBoxnbHeureForma.IsEnabled = false;
@@ -116,9 +116,9 @@ namespace Travail01.View
             
             //replissage de la comboBox Pole
             resultPole = poleBDD.ListePole(); // resultate = fonction ListePole() de type "List<string>" de la classe  BLL_Pole
-            foreach (string pole in resultPole) // a chaque iteration je prends un element de ma liste et le mets dans la variable pole
+            foreach (string pole in resultPole) // à chaque iteration je prends un element de ma liste et le mets dans la variable pole
             {
-                string[] tabString = pole.Split('/'); // Divise une chaîne en sous-chaînes en fonction de caractères de délimitation spécifiés ici '/' et le mets dans un tableau             
+                string[] tabString = pole.Split('/'); // Divise une chaîne en sous-chaînes en fonction de caractères de délimitation spécifiés ici '/' et le met dans un tableau             
                 comboBoxPole.Items.Add(tabString[1]); //Dans comboBoxPole j'ajoute un item
             }
 
@@ -155,7 +155,7 @@ namespace Travail01.View
 
             string le_id_Pole = "";
             string la_id_Qualif = "";
-            string formatted = string.Empty;// bien que vide il faut lui précisé que la chaine est vide sinon il pense que c'est indeterminé!!!
+            string formatted = string.Empty;// bien que vide il faut lui préciser que la chaine est vide sinon il pense que c'est indeterminé!!!
             string formattedFin = string.Empty; // idem
 
             DateTime dateduJour = new DateTime();// on declare et on l'instancie DataPicker
@@ -176,18 +176,18 @@ namespace Travail01.View
             if (selectedDate.HasValue) // si il y a une valeur => true
             {
                 formatted = selectedDate.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au forma string : mmois/Jour/Année
-                MessageBox.Show(formatted, "c'est la date debut selectionné!! ");
+                MessageBox.Show(formatted, "c'est la date début sélectionnée !! ");
             }
 
             if (selectedDate.HasValue)
             {
                 formattedFin = selectedDateFin.Value.ToString("dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);//la valeur est mise au forma string : mmois/Jour/Année
-                MessageBox.Show(formattedFin, "c'est la date fin selectionné!! ");
+                MessageBox.Show(formattedFin, "c'est la date fin sélectionnée !! ");
 
             }
 
             string[] formaDate = formatted.Split('.'); // car le separateur entre :" jour . mois . année " est un point
-            string dateformaBase = formaDate[2] + "-" + formaDate[1] + "-" + formaDate[0];  // la date de debut stage au forma pour la base
+            string dateformaBase = formaDate[2] + "-" + formaDate[1] + "-" + formaDate[0];  // la date de debut stage au format pour la base
             // plus besoin car DataPicker est mis au format francais dans Xaml ... Donc formatted est au bon format pour le DataPicker
         //  string datformaAffichage = formaDate[1] + "-" + formaDate[0] + "-" + formaDate[2]; // plus besoin
 
@@ -215,7 +215,7 @@ namespace Travail01.View
             }
 
 
-            // on verifieque toutes le données sont bien mises dans les textBox
+            // on verifie que toutes le données sont bien mises dans les textBox
 
             if (( txtBoxNumForma.Text != "" ) && ( txtBoxIntituleForma.Text != "" ) && 
                 ( txtBoxnbHeureForma.Text != "" ) && ( txtBoxnbHeureCours.Text != "" ) && ( txtBoxnbHeureStg.Text != "" ) && 
@@ -241,7 +241,7 @@ namespace Travail01.View
         }
 
 
-        // On obligue au préalable à choisir un Pole
+        // On oblige au préalable à choisir un Pole
         private void ComboBoxPole_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int indexComboPole = (comboBoxPole.SelectedIndex)+0; // car le 1er commence à 0
@@ -251,24 +251,24 @@ namespace Travail01.View
             // je prends que le numero du pole 
             SelectPoleDTO.NumPole = resultPole[indexComboPole].Split('/')[1];                                
 
-            if (SelectPoleDTO.NumPole !="") // si la zonne text n'est pas vide
+            if (SelectPoleDTO.NumPole !="") // si la zonne texte n'est pas vide
             {
                 drapeauChoixPole = true;
                 comboBoxQualif.IsEnabled = true;   // on peut lire mais pas ecrire sur le comboBox
             }
         }
 
-        // Apres le pole, on obligue à choisir une qualification de formation  
+        // Apres le pole, on oblige à choisir une qualification de formation  
         private void ComboBoxQualif_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int indexComboQualif = (comboBoxQualif.SelectedIndex) + 1; // car le 1er commence à 0
 
             DTO_Qualif SelectQualifDTO = new DTO_Qualif();
 
-            // je recupere que le numero de la qualification de la foemation
+            // je recupere que le numero de la qualification de la formation
             SelectQualifDTO.NumQualif = resultQualif[indexComboQualif].Split('/')[1];
                    
-            if (SelectQualifDTO.NumQualif !="")   // si la zone text n'est pas vide 
+            if (SelectQualifDTO.NumQualif !="")   // si la zone texte n'est pas vide 
             {
                 drapeauChoixQualif = true;
                 btAjouter.IsEnabled = true; // on active le bouton Ajouter           

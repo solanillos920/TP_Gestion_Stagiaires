@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travail01.View"
         mc:Ignorable="d"
-        Title="EnregistreNvEntreprise" Height="450" Width="800">
+        Title="EnregistreNvEntreprise" Height="450" Width="800" Icon="/Travail01;component/Images/douai1.ico" >
+    
     <!--   Commande Routé      -->
     <Window.CommandBindings>
         <CommandBinding

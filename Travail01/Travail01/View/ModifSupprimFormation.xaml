@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travail01.View"
         mc:Ignorable="d"
-        Title="ModifSupprimFormation" Height="750" Width="800">
+        Title="ModifSupprimFormation" Height="750" Width="800" Icon="/Travail01;component/Images/douai1.ico" >
+    
     <!--   Commande Routée      -->
     <Window.CommandBindings>
         <CommandBinding
@@ -15,7 +16,7 @@
 
     </Window.CommandBindings>
     <Grid>
-        <!--la fenetre est diviser en 3 lignes -->
+        <!--la fenetre est divisée en 3 lignes -->
         <!--1er: User Control de Haut de Page -->
         <!--2eme: le corps de la fenetre pour mettre des box en fontion des besoins   -->
         <!--3eme: User Controle de Bas de Page -->
@@ -68,7 +69,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="450"/>
+                    <ColumnDefinition Width="470"/>
                     <!--   les label avec TextBlox   -->
                     <ColumnDefinition Width="10"/>
                     <!--   separation        -->
@@ -90,28 +91,28 @@
                         <RowDefinition Height="30"/>
                         <!-- heures cours  -->
                         <RowDefinition Height="30"/>
-                        <!-- heurs stage  -->
+                        <!-- heures stage  -->
                         <RowDefinition Height="30"/>
                         <!-- nombre de stage -->
                         <RowDefinition Height="30"/>
-                        <!-- periode de tage  -->
+                        <!-- periode de stage  -->
                         <RowDefinition Height="30"/>
                         <!-- date debut formation   -->
                         <RowDefinition Height="30"/>
-                        <!-- da te fin formation   -->
+                        <!-- date fin formation   -->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="190"/>
                         <!-- label   -->
                         <ColumnDefinition Width="300"/>
                         <!-- textBlox  -->
                     </Grid.ColumnDefinitions>
 
-                    <Label   Grid.Row="0" Grid.Column="0" Height="25" Width="160" Content="Numero Formation :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label   Grid.Row="0" Grid.Column="0" Height="25" Width="160" Content="Numéro Formation :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBox x:Name="txtBoxNumForma" Grid.Row="0" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
                     <Label   Grid.Row="1" Grid.Column="0" Height="25" Width="160" Content="Intitulé Formation :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBox x:Name="txtBoxIntituleForma"    Grid.Row="1" Grid.Column="1" Height="70" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"  TextWrapping="Wrap"         />
-                    <Label   Grid.Row="2" Grid.Column="0" Height="25" Width="160" Content="Heures total Formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label   Grid.Row="2" Grid.Column="0" Height="25" Width="190" Content="Heures totales Formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtBoxnbHeureForma"      Grid.Row="2" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
                     <Label   Grid.Row="3" Grid.Column="0" Height="30" Width="160" Content="Heures Cours :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBox x:Name="txtBoxnbHeureCours"    Grid.Row="3" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
@@ -119,10 +120,10 @@
                     <TextBox x:Name="txtBoxnbHeureStg"    Grid.Row="4" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
                     <Label   Grid.Row="5" Grid.Column="0" Height="30" Width="160" Content="Nombre de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtBoxnbStage"   Grid.Row="5" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
-                    <Label   Grid.Row="6" Grid.Column="0" Height="30" Width="160" Content="Peride de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label   Grid.Row="6" Grid.Column="0" Height="30" Width="160" Content="Péride de Stage :" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <TextBox x:Name="txtBoxPeriodestg"   Grid.Row="6" Grid.Column="1" Height="25" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
 
-                    <Label   Grid.Row="7" Grid.Column="0" Height="30" Width="160" Content="Date debut formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label   Grid.Row="7" Grid.Column="0" Height="30" Width="160" Content="Date début formation:" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                     <TextBox x:Name="txtBoxdtDebForma"   Grid.Row="7" Grid.Column="1" Height="25" Width="280" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
                     <DatePicker x:Name="dpDebForma"   Grid.Row="7" Grid.Column="1" Language="fr-FR" SelectedDate="{Binding DateduJourDeb}"  Height="25" Width="275" VerticalAlignment="Center" HorizontalAlignment="Left"                    />
@@ -236,7 +237,7 @@
                 <Grid Grid.Row="0" Grid.Column="0">
                     <!-- Ici on met des info sur la connexion -->
                     <Grid>
-                        <!-- je divise en 1 lign et 2 colonne-->
+                        <!-- je divise en 1 ligne et 2 colonnes-->
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>

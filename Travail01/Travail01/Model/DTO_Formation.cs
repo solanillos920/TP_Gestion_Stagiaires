@@ -43,7 +43,7 @@ namespace Travail01.Model
         public int NbPeriode { get => nbPeriode; set => nbPeriode = value; }
         #endregion
         
-        // pour crée le contructeur
+        // pour crée le constructeur
         // on tape "ctor" click 2 fois sur tabulation
         #region Constructeur de la classe DTO_Formation     
         public DTO_Formation()

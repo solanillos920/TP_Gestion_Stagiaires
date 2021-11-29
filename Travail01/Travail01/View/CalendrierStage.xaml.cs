@@ -47,7 +47,7 @@ namespace Travail01.View
 
 
             // changer le titre de la page xaml
-            this.Title = " Gestion des Stagiaire ";
+            this.Title = " Gestion des Stagiaires ";
             TxtHautPage = " Enregistrement un nouveau Stagiaire";
             // gestion des boutons
             btModif.IsEnabled = false;

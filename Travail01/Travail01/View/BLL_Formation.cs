@@ -21,7 +21,7 @@ namespace Travail01.View
             //création d'un objet de la classe bddMysql
             bool EstOk = false;
 
-            //Connexion au SGBD ouvre 
+            //Connexion au SGBD pour ouverture
             BddMySql Bdd = new BddMySql("localhost", 3306, "travail01", "root", "");
             bool OuvertureOk = Bdd.OuvrirConnexion();                                 
            
@@ -32,31 +32,31 @@ namespace Travail01.View
             // prepare la requete qui donne 1 si le numero existe déja et 0 si non!
             int compt = 1; // 0 si numForma n'existe pas et 1 si numforma existe déjà
             
-            /* **************    requete preparées  *********************  */
+            /* **************    requetes preparées  *********************  */
 
-            // creer un objet de la classe  pour stocker le result de la requete préparée
+            // creer un objet de la classe  pour stocker le resultat de la requete préparée
             MySqlDataReader resultat;
-            // Je defini le squelette  de la requête préparée
+            // Je definis le squelette  de la requête préparée
             string requeteExiste = " SELECT COUNT(idForma) FROM formation WHERE numforma = @NumFormation";
-            // je créé un ojet  MySqlCommand qui permet d'exécuter la requete
+            // je crée un ojet  MySqlCommand qui permet d'exécuter la requete
             MySqlCommand requetPrepa = new MySqlCommand(requeteExiste,Bdd.Connexion);
 
-            //Je defini le type des parametreé de la requete preparée
+            //Je definis le type des parametres de la requete preparée
             requetPrepa.Parameters.Add(new MySqlParameter("@NumFormation", MySqlDbType.String));
             // j'affecte la valeur au pararmetre
             requetPrepa.Parameters["@NumFormation"].Value = (formaAjouter.NumForma);
 
-            /*  *************** fin requete prepaée ******************  */
+            /*  *************** fin requete preparée ******************  */
                        
             if (OuvertureOk == true)
             {                
                 // j'execute la requete prepareé
                 resultat = Bdd.RequeteSql(requetPrepa);
 
-                // il on verifit s'il a des données dans le Reader
-                if (resultat.HasRows)// = true s'il y 1 ou plusieur lignes
+                // on verifie s'il y a des données dans le Reader
+                if (resultat.HasRows)// = true s'il y 1 ou plusieurs lignes
                 {
-                     resultat.Read(); // lire le contenu du Reader qu est mis dans la variable tableau
+                     resultat.Read(); // lire le contenu du Reader qui est mis dans la variable tableau
 
                      // récupère la 1ere valeur(string car numformation est un string) du tableau  
                      // la 1ere valeur c'est le idForma et le tableau est selctionné par son Numero = numForma 
@@ -64,25 +64,25 @@ namespace Travail01.View
                 }
             }
 
-            Bdd.FermerConnexion();  // fer la connexion
+            Bdd.FermerConnexion();  // ferme la connexion
 
             // si le compteur = 0 => le numero n'existe pas 
             if (compt == 0)
             {
-                // ouvire la connexion
+                // ouvrire la connexion
                 OuvertureOk = Bdd.OuvrirConnexion();
 
-                /*    --------------  debut requete préparés  -----------------------      */
+                /*    --------------  debut requete préparée  -----------------------      */
 
-                /* ---mettre en place des requete preparer --- */
-                // le defini le squelette  de la requête préparée
+                /* ---mettre en place des requetes preparées --- */
+                // on definit le squelette  de la requête préparée
                 string requeter =  "INSERT INTO formation(idForma, numForma, intituleForma, nbHeureForma, nbHeureCours, nbHeureStg, dtDebForma, dtFinForma, nombreStage, nbPeriodeStg, " +
                 "idPole, idQualification) VALUES (Null, @NumeForma, @IntituForma, @LeNbHeureForma, @LeNbHeureCours, @LeNbHeureStg, @LaDtDebForma, @LaDtFinForma, @LeNbStg, @LeNbPeriodeStg, @LeIdPole, @LeIdQualifi)";
                                                       
-                // je créé un objet  MySqlCommand qui permet d'exécuter la requete
+                // je crée un objet  MySqlCommand qui permet d'exécuter la requete
                 MySqlCommand laRequetePreparer = new MySqlCommand(requeter, Bdd.Connexion);
 
-                //Je defini le type des parametres à ajouter à la requête préparée
+                //Je definis le type des parametres à ajouter à la requête préparée
                 laRequetePreparer.Parameters.Add(new MySqlParameter("@LeIdForma", MySqlDbType.Int16));
                 laRequetePreparer.Parameters.Add(new MySqlParameter("@NumeForma", MySqlDbType.String));
                 laRequetePreparer.Parameters.Add(new MySqlParameter("@IntituForma", MySqlDbType.String));
@@ -115,8 +115,8 @@ namespace Travail01.View
 
                 if (OuvertureOk == true) // connexion au SGBD ok
                 {                
-                    // J'xecute la requete et je teste la requête
-                    int NbrLignes = Bdd.RequeteNoData(laRequetePreparer); // passage en parametre modifier pour la requete préparée
+                    // J'execute la requete et je teste la requête
+                    int NbrLignes = Bdd.RequeteNoData(laRequetePreparer); // passage en parametres modifiés pour la requete préparée
                     if (NbrLignes > 0)
                         EstOk = true;   // requête AjouterPole effectuer
                 }    
@@ -135,21 +135,21 @@ namespace Travail01.View
         // Fonction pour Modifier une Formation
         public bool ModifierForma(DTO_Formation formaModif)
         {
-            // Creation d'un objet dela classe BddMySql         
+            // Creation d'un objet de la classe BddMySql         
             bool EstOk = false;
 
             //Connexion au SGBD
             ViewModel.BddMySql Bdd = new ViewModel.BddMySql("localhost", 3306, "travail01", "root", "");
             bool OuvertureOk = Bdd.OuvrirConnexion();
            
-            /*   --------------  Requete préparées -----------------------             */
+            /*   --------------  Requetes préparées -----------------------             */
             
             string requeter = "UPDATE formation SET numForma = @NumFormation, intituleForma = @IntituForma, nbHeureForma = @LeNbHeureForma, nbHeureCours =@LeNbHeureCours, nbHeureStg = @LeNbHeureStg, dtDebForma = @LaDtDebForma, dtFinForma = @LaDtFinForma, nombreStage =@LeNbStg, nbPeriodeStg = @LeNbPeriodeStg  WHERE idForma = @LeIdForma";
 
-            // je créé un objet  MySqlCommand qui permet d'exécuter la requete
+            // je crée un objet  MySqlCommand qui permet d'exécuter la requete
             MySqlCommand laRequetePreparer = new MySqlCommand(requeter, Bdd.Connexion);
 
-            //Je defini le type des parametres à ajouter à la requête préparée
+            //Je definis le type des parametres à ajouter à la requête préparée
             laRequetePreparer.Parameters.Add(new MySqlParameter("@LeIdForma", MySqlDbType.Int16));
             laRequetePreparer.Parameters.Add(new MySqlParameter("@NumFormation", MySqlDbType.String));
             laRequetePreparer.Parameters.Add(new MySqlParameter("@IntituForma", MySqlDbType.String));
@@ -177,7 +177,7 @@ namespace Travail01.View
                         
             if (OuvertureOk == true)
             {
-                //Trester la requête
+                //Tester la requête
                 int nBUpdate = Bdd.RequeteNoData(laRequetePreparer);
                 if (nBUpdate > 0)
                     EstOk = true; // requête ModifierPole effectuer
@@ -195,16 +195,16 @@ namespace Travail01.View
             ViewModel.BddMySql Bdd = new ViewModel.BddMySql("localhost", 3306, "travail01", "root", "");
             bool OuvertureOK = Bdd.OuvrirConnexion();
                        
-            /*   --------- Debut  Requete préparées  ------------------         */
+            /*   --------- Debut  Requetes préparées  ------------------         */
             
-            // creer un objet de la classe  pour stocker le result de la requete préparée
+            // creer un objet de la classe  pour stocker le resultat de la requete préparée
             MySqlDataReader resultat;
             string requetePk = "SELECT idForma FROM formation WHERE numForma = @Numeroformation";
             
-            // je créé un ojet  MySqlCommand qui permet d'exécuter la requete
+            // je crée un ojet  MySqlCommand qui permet d'exécuter la requete
             MySqlCommand requetPrepa = new MySqlCommand(requetePk, Bdd.Connexion);
 
-            //Je defini le type des parametreé de la requete preparée
+            //Je definis le type des parametreé de la requete preparée
             requetPrepa.Parameters.Add(new MySqlParameter("@Numeroformation", MySqlDbType.String));
             // j'affecte la valeur
             requetPrepa.Parameters["@Numeroformation"].Value = (numeroformation);
@@ -214,11 +214,11 @@ namespace Travail01.View
 
             if (OuvertureOK == true)
 
-            {   // récupère le resultat de requete dans tableau
+            {   // je récupère le resultat de requete dans tableau
                 resultat = Bdd.RequeteSql(requetPrepa); //  avec la requete normale MySqlDataReader tableau = Bdd.RequeteSql(requetPrepa);
 
-                // il on verifit s'il a des données dans le Reader
-                if (resultat.HasRows) //HasRows = true s'il y 1 ou plusieur lignes
+                // on verifite s'il y a des données dans le Reader
+                if (resultat.HasRows) //HasRows = true s'il y 1 ou plusieurs lignes
                 {
                     resultat.Read(); // lire le contenu du Reader qu est mis dans la variable tableau
 
@@ -232,7 +232,7 @@ namespace Travail01.View
 
 
 
-        // Fonction pour supprimer une Formation. On supprime l'enregistrement par rapport au numero et on peut le faire par raport id
+        // Fonction pour supprimer une Formation. On supprime l'enregistrement par rapport au numero et on peut le faire par raport à l'id
         public bool SupprimerForma(DTO_Formation formaSupprimer)
         {
             // création d'un objet de la classe bddMySql  
@@ -244,13 +244,13 @@ namespace Travail01.View
                        
             /*   --------------  Requete préparées -----------------------             */
 
-            // le defini le squelette  de la requête préparée
+            // je defini le squelette  de la requête préparée
             string requetePrePa = "DELETE FROM formation WHERE idForma = @LeIdFormat";
 
-            // je créé un objet  MySqlCommand qui permet d'exécuter la requete
+            // je crée un objet  MySqlCommand qui permet d'exécuter la requete
             MySqlCommand laRequetePreparer = new MySqlCommand(requetePrePa, Bdd.Connexion);
 
-            //Je defini le type des parametres à ajouter à la requête préparée
+            //Je definis le type des parametres à ajouter à la requête préparée
             laRequetePreparer.Parameters.Add(new MySqlParameter("@LeIdFormat", MySqlDbType.Int16));
 
             // j'affecte la valeur au pararmetre
@@ -269,7 +269,7 @@ namespace Travail01.View
         }       
 
 
-        //Je créé une liste des Poles existant
+        //Je crée une liste des Poles existants
         public List<string> ListeForma()
         {
             List<string> resulForma = new List<string>();
@@ -282,7 +282,7 @@ namespace Travail01.View
 
         
 
-        // ici
+       
 
 
 

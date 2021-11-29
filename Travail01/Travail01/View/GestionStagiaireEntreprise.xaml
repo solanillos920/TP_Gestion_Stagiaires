@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Travail01.View"
         mc:Ignorable="d"
-        Title="GestionStagiaireEntreprise" Height="700" Width="900">
+        Title="GestionStagiaireEntreprise" Height="700" Width="900" Icon="/Travail01;component/Images/douai1.ico" >
     
     
     

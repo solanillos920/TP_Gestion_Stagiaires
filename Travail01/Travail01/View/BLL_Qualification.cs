@@ -26,7 +26,7 @@ namespace Travail01.View
                 //Tester la requête
                 int NbrLignes = Bdd.RequeteNoData(requete);
                 if (NbrLignes > 0)
-                    EstOk = true;   // requête AjouterPole effectuer
+                    EstOk = true;   // requête AjouterPole effectué
             }
             return EstOk;
         }
@@ -48,12 +48,12 @@ namespace Travail01.View
                 //Trester la requête
                 int nBUpdate = Bdd.RequeteNoData(requete);
                 if (nBUpdate > 0)
-                    EstOk = true; // requête ModifierPole effectuer
+                    EstOk = true; // requête ModifierPole effectué
             }
             return EstOk;
         }
 
-        // on supprime l'enregistrement par rapport au numero et on peut le faire par raport id
+        // on supprime l'enregistrement par rapport au numero et on peut le faire par rapport id
         public bool SupprimerQualif(DTO_Qualif qualifSupprimer)
         {
             // création d'un objet de la classe bddMySql  
@@ -81,7 +81,7 @@ namespace Travail01.View
         }
 
 
-        //Je créé une liste des qualifs existant
+        //Je créé une liste des qualifs existants
         public List<string> ListeQualif()
         {
             List<string> resulQualif = new List<string>();
